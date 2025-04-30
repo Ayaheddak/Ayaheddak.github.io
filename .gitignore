@@ -42,7 +42,7 @@ coverage/
 # Optional: if you're using Parcel or Vite
 .cache/
 .parcel-cache/
-vite.config.ts
+# vite.config.ts
 
 # Optional: if you're using React Native (just in case)
 .expo/
