@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-12 relative inline-block;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute left-0 -bottom-3 w-1/3 h-1 bg-indigo-600 dark:bg-indigo-400 rounded;
+}
+
+.section-container {
+  @apply mb-32;
+}
+
+/* Parallax effect */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Hover effects for project cards */
+.project-card {
+  @apply transition-all duration-300;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  @apply shadow-lg;
+}
+
+.project-card .project-links {
+  opacity: 0;
+  transform: translateY(10px);
+  @apply transition-all duration-300;
+}
+
+.project-card:hover .project-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skill bar animation */
+.skill-progress {
+  position: relative;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background-color: theme('colors.indigo.600');
+  transition: width 1s ease-in-out;
+}
+
+.dark .skill-progress-bar {
+  background-color: theme('colors.indigo.400');
+}
+
+/* Timeline styles */
+.timeline {
+  @apply relative border-l-2 border-slate-200 dark:border-slate-700 pl-6 ml-6;
+}
+
+
+
+.timeline-item::before {
+  content: '';
+  @apply absolute rounded-full w-4 h-4 bg-indigo-600 dark:bg-indigo-400 border-4 border-white dark:border-slate-900 left-0 -translate-x-[calc(0.5rem+1px)];
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+footer {
+  padding: 1rem;
+}
