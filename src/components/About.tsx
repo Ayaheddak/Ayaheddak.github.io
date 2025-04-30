@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import pdpImage from '@/assets/pdp_.png';
+import pdpImage from '../assets/pdp_.png';
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   return (
@@ -7,7 +7,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
       <h2 className="section-title text-center">About Me</h2>
 
       <div className="grid md:grid-cols-3 gap-10 mt-12">
-        {/* Image section (unchanged) */}
+       
         <div className="md:col-span-1 h-full">
           <div className="sticky top-24">
             <div className="aspect-square rounded-2xl overflow-hidden mb-6 relative">
