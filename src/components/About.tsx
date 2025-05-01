@@ -74,9 +74,9 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
  
       <div className="relative z-20 h-full w-full px-6 pt-20 flex flex-col">
         
-        <h2 className="section-title text-left text-3xl font-bold text-black dark:text-white mb-7">
+        {/* <h2 className="section-title text-left text-3xl font-bold text-black dark:text-white mb-7">
           About Me
-        </h2>
+        </h2> */}
 
         
         <div className="grid md:grid-cols-3 gap-10 flex-grow">

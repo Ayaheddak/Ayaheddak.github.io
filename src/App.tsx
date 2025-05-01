@@ -7,7 +7,7 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ParallaxHero from './components/ParallaxHero';
-import Logo from './assets/logo.png';
+import Logo from './assets/logo-t.png';
 
 
 function App() {

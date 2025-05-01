@@ -40,11 +40,13 @@ const Experience = forwardRef<HTMLDivElement>((props, ref) => {
           <div key={index} className="timeline-item mt-22">
             <div className="mb-2">
               <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-12">{exp.title}</h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium">{exp.company}</p>
+              <span className="text-indigo-600 dark:text-indigo-400 font-medium m-1">{exp.company}</span>
+              <span> - {exp.location}</span>
               <div className="flex flex-wrap items-center text-sm text-slate-500 dark:text-slate-400 mt-1">
-                <span>{exp.location}</span>
                 <span className="mx-2">•</span>
                 <span>{exp.period}</span>
+               
+               
               </div>
             </div>
             
