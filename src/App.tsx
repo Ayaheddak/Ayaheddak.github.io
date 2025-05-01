@@ -7,6 +7,8 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ParallaxHero from './components/ParallaxHero';
+import Logo from './assets/logo.png';
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -69,8 +71,12 @@ function App() {
     <div className={`App ${darkMode ? 'dark' : ''}`}>
       <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-slate-800 dark:text-white" onClick={() => scrollToSection('home')}>
-            Aya Heddak
+          <a href="#" className="relative text-xl font-bold text-slate-800 dark:text-white" onClick={() => scrollToSection('home')}>
+          <img 
+                src={Logo} 
+                alt='logo' 
+                className="w-10 h-10 object-fill rounded-full"
+          />
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
