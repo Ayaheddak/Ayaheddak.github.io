@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:gh": "GITHUB_PAGES=true vite build",
+    "deploy": "npm run build:gh && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
