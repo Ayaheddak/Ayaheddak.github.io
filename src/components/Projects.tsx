@@ -24,6 +24,13 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
       github: "https://github.com/Ayaheddak/ft_transcendence",
     },
     {
+      title: "JobSync – Automated Job Scraper",
+      description: "Built a powerful scraping tool using Python to collect job listings from platforms like Indeed, GulfTalent, Anapec, and Glassdoor. Implemented pagination, proxy rotation, and headless browsing with Selenium to ensure data accuracy and storage into a structured database for future analytics or visualization.",
+      image: WebScarping,
+      technologies: ["Python", "Scrapy", "BeautifulSoup", "Selenium"],
+      github: "NULL"
+    },
+    {
       title: "Mini-HTTP",
       description: "Developed a lightweight HTTP server in C++98, handling multiple requests with non-blocking sockets and CGI support for dynamic content",
       image: WebsrvImage,
@@ -32,13 +39,6 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
       liveDemo: "#"
     },
 
-    {
-      title: "JobSync – Automated Job Scraper",
-      description: "Built a powerful scraping tool using Python to collect job listings from platforms like Indeed, GulfTalent, Anapec, and Glassdoor. Implemented pagination, proxy rotation, and headless browsing with Selenium to ensure data accuracy and storage into a structured database for future analytics or visualization.",
-      image: WebScarping,
-      technologies: ["Python", "Scrapy", "BeautifulSoup", "Selenium"],
-      github: "NULL"
-    },
 
   ];
 
@@ -57,7 +57,7 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
               />
             </div>
             

@@ -189,8 +189,11 @@ function App() {
             </div>
           </div>
         </section>
+        <section className='h-screen'>
 
           <About ref={sectionRefs.about} />
+        </section>
+
         <div className="container mx-auto px-6 py-20">
           <Experience ref={sectionRefs.experience} />
           <Education ref={sectionRefs.education} />

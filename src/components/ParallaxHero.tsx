@@ -7,6 +7,7 @@ const ParallaxHero = () => {
   useEffect(() => {
     const handleScroll = () => {
       setOffset(window.pageYOffset);
+
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -34,7 +35,7 @@ const ParallaxHero = () => {
       <div 
         className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900"
         style={{
-          opacity: 0.1 + (offset * 0.001)
+          opacity: 0.2 + (offset * 0.001)
         }}
       ></div>
     </div>

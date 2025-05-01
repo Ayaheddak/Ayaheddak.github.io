@@ -4,10 +4,12 @@ import GirlCutout from '../assets/Girl-cutout.png';
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   const [offset, setOffset] = useState(100);
+  const [rootOffset, setRootOffset] = useState(100);
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffset(window.pageYOffset);
+      setRootOffset(window.pageYOffset);
+      setOffset(window.pageYOffset - window.innerHeight);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -41,7 +43,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
           backgroundImage: `url(${GirlCutout})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
-          transform: `translateX(${offset * -0.1}px)`,
+          transform: `translateX(${rootOffset * -0.15}px)`,
           backgroundRepeat: 'no-repeat',
           opacity: 0.9
         }}
@@ -49,13 +51,13 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
       <div 
         className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900"
         style={{
-          opacity: 0.1 * (offset * 0.001)
+          opacity: 0.1 + (offset * 0.001)
         }}
-      />
+      ></div>
 <div 
-  className="absolute top-0 left-0 right-0 h-[10%] bg-gradient-to-b from-white dark:from-slate-900 to-transparent"
+  className="absolute  top-[-5%] left-0 right-0 h-[30%] bg-gradient-to-b from-white dark:from-slate-900 to-transparent"
   style={{
-    opacity: 0.1 * (offset * 0.01)
+    opacity: 0.1 + (rootOffset * 0.002)
   }}
 />
 
@@ -99,7 +101,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
                 </a>
                 <a
                   href="#contact"
-                  className="px-6 py-2 border border-black text-black rounded-full font-medium hover:bg-gray-100 transition"
+                  className="px-6 py-2 border border-black text-black dark:text:white dark:bg-indigo-400 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                 >
                   Get in Touch
                 </a>
