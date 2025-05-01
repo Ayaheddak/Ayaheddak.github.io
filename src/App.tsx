@@ -27,7 +27,6 @@ function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      // Determine active section
       const scrollPosition = window.scrollY + 100;
       
       Object.entries(sectionRefs).forEach(([section, ref]) => {
@@ -191,8 +190,8 @@ function App() {
           </div>
         </section>
 
-        <div className="container mx-auto px-6 py-20">
           <About ref={sectionRefs.about} />
+        <div className="container mx-auto px-6 py-20">
           <Experience ref={sectionRefs.experience} />
           <Education ref={sectionRefs.education} />
         

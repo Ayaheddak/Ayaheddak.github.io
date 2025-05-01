@@ -25,7 +25,7 @@ const ParallaxHero = () => {
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transform: `translateY(${offset * 0.1}px)`,
+          transform: `translateY(${offset * 0.3}px)`,
           opacity: 0.5
         }}
       ></div>
