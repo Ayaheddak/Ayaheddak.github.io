@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import  backgroundImage from '@/assets/bg.jpg';
 
 const ParallaxHero = () => {
-  const [offset, setOffset] = useState(100);
+  const [offset, setOffset] = useState(0);
   
   useEffect(() => {
     const handleScroll = () => {

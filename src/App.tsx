@@ -9,9 +9,10 @@ import Contact from './components/Contact';
 import ParallaxHero from './components/ParallaxHero';
 import Logo from './assets/logo-t.png';
 
+import BgAbout from '/src/assets/bg-about-bg.png';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -27,9 +28,10 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
+
       setScrolled(window.scrollY > 50);
       
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY;
       
       Object.entries(sectionRefs).forEach(([section, ref]) => {
         if (ref.current) {
@@ -61,7 +63,7 @@ function App() {
     const section = sectionRefs[sectionId as keyof typeof sectionRefs].current;
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 80,
+        top: section.offsetTop, //- 80,
         behavior: 'smooth'
       });
     }
@@ -69,7 +71,12 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? 'dark' : ''}`}>
-      <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
+      <header className={`
+                          fixed w-full 
+                          select-none z-50 
+                          transition-all duration-900  hover:bg-white/90 hover:dark:bg-slate-900/90 hover:backdrop-blur-sm hover:shadow-md 
+                          opacity-0 transition delay-100 duration-300 ease-in-out hover:opacity-100`}>
+     
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#" className="relative text-xl font-bold text-slate-800 dark:text-white" onClick={() => scrollToSection('home')}>
           <img 
@@ -80,7 +87,7 @@ function App() {
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center space-x-6  ">
               {Object.keys(sectionRefs).map(section => section !== 'home' && (
                 <a 
                   key={section}
@@ -89,7 +96,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
-                  className={`text-sm font-medium capitalize transition-colors duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'}`}
+                  className={`text-sm font-medium capitalize transition-colors duration-300 hover:text-green-600 dark:hover:text-green-400 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'}`}
                 >
                   {section}
                 </a>
@@ -97,7 +104,14 @@ function App() {
             </nav>
             <button 
               onClick={() => setDarkMode(!darkMode)} 
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="p-2 rounded-full 
+              dark:bg-slate-100 
+              bg-slate-800 
+              dark:text-slate-600 
+              text-slate-300 
+              dark:hover:bg-slate-200 
+              hover:bg-slate-700 
+              transition-colors"
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -107,7 +121,14 @@ function App() {
           <div className="md:hidden flex items-center space-x-4">
             <button 
               onClick={() => setDarkMode(!darkMode)} 
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+              className="p-2 rounded-full 
+              dark:bg-slate-100 
+              bg-slate-800 
+              dark:text-slate-600 
+              text-slate-300 
+              dark:hover:bg-slate-200 
+              hover:bg-slate-700 
+              transition-colors"
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -123,7 +144,7 @@ function App() {
         </div>
         
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg">
+          <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg opacity-100">
             <nav className="container mx-auto px-6 py-4 flex flex-col space-y-4">
               {Object.keys(sectionRefs).map(section => section !== 'home' && (
                 <a 
@@ -144,7 +165,7 @@ function App() {
       </header>
 
       <main className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200">
-        <section ref={sectionRefs.home} id="home" className="relative h-screen">
+        <section ref={sectionRefs.home} id="home" className="relative h-screen select-none">
           <ParallaxHero />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
             <div className="max-w-3xl mx-auto">
@@ -156,34 +177,34 @@ function App() {
                 Software Engineer
               </p>
               <div className="flex justify-center space-x-4 mb-8">
-                <a 
-                  href="mailto:heddak.aya@gmail.com" 
+                <a
+                  href="mailto:heddak.aya@gmail.com"
                   className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="Email"
                 >
                   <Mail size={20} />
                 </a>
-                <a 
-                  href="https://github.com/Ayaheddak" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://github.com/Ayaheddak"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="GitHub"
                 >
                   <GitHub size={20} />
                 </a>
-                <a 
-                  href="https://linkedin.com/in/aya-heddak" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://linkedin.com/in/aya-heddak"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={20} />
                 </a>
               </div>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('about');
@@ -195,29 +216,37 @@ function App() {
             </div>
           </div>
         </section>
-        <section className='h-screen'>
-
+        <section  className='min-h-screen'>
           <About ref={sectionRefs.about} />
         </section>
-
-        <div className="container mx-auto px-6 py-20">
+        <section  className='min-h-screen'>
           <Experience ref={sectionRefs.experience} />
-          <Education ref={sectionRefs.education} />
-        
-          <Projects ref={sectionRefs.projects} />
-          <Contact ref={sectionRefs.contact} />
-        </div>
+        </section>
+
+
+        <section  className='min-h-screen'>
+          <Education  ref={sectionRefs.education}/>
+        </section>
+
+        <section  className='min-h-screen'>
+          <Projects ref={sectionRefs.projects}/>
+        </section>
+
+        <section  className='min-h-screen'>
+            <Contact ref={sectionRefs.contact} />
+        </section>
       </main>
 
-      <footer className="bg-slate-100 dark:bg-slate-800 py-2">
+      <footer className="bg-white/90 dark:bg-slate-900/90
+       py-2">
         <div className="container mx-auto px-6 text-center">
-          <div className="flex justify-center space-x-4 mb-6">
+          <div className="flex justify-center   space-x-4 mb-1">
             <a 
               href="mailto:heddak.aya@gmail.com" 
               className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               aria-label="Email"
             >
-              <Mail size={20} />
+              <Mail size={15} />
             </a>
             <a 
               href="https://github.com/Ayaheddak" 
@@ -226,7 +255,7 @@ function App() {
               className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               aria-label="GitHub"
             >
-              <GitHub size={20} />
+              <GitHub size={15} />
             </a>
             <a 
               href="https://linkedin.com/in/aya-heddak" 
@@ -235,10 +264,10 @@ function App() {
               className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={15} />
             </a>
           </div>
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             &copy; {new Date().getFullYear()} Aya Heddak. All rights reserved.
           </p>
         </div>

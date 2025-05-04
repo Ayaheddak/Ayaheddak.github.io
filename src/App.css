@@ -17,7 +17,9 @@ body {
 }
 
 .section-title {
-  @apply text-3xl font-bold mb-12 relative inline-block;
+  @apply font-bold  
+  relative inline-block mb-2
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
 }
 
 .section-title::after {
@@ -26,7 +28,15 @@ body {
 }
 
 .section-container {
-  @apply mb-32;
+  @apply relative mb-5
+  /* h-screen  */
+}
+
+.content-container {
+  @apply relative 
+    /* overflow-hidden */
+    pl-4 sm:pl-5 md:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 
+    pt-4 sm:pt-5 md:pt-8 lg:pt-8 xl:pt-16 2xl:pt-20;
 }
 
 /* Parallax effect */
@@ -79,16 +89,35 @@ body {
 
 /* Timeline styles */
 .timeline {
-  @apply relative border-l-2 border-slate-200 dark:border-slate-700 pl-6 ml-6;
+  @apply relative rounded-xl 
+  mr-4
+  mt-1 sm:mt-4 md:mt-4 lg:mt-5 xl:mt-6 2xl:mt-8
+  py-1 sm:py-2 md:py-4 lg:py-4 xl:py-8 2xl:py-10
+  pr-4 pl-4 sm:pl-4 md:pl-6 lg:pl-10 xl:pl-12 2xl:pl-16
+  
+  bg-opacity-0  hover:dark:bg-opacity-60 hover:bg-opacity-60
+  transition delay-100 duration-300 ease-in-out
+  hover:dark:bg-slate-700 
+  hover:bg-indigo-200 
+
+  border-l-2  border-slate-200 dark:border-slate-900;
 }
-
-
 
 .timeline-item::before {
   content: '';
-  @apply absolute rounded-full w-4 h-4 bg-indigo-600 dark:bg-indigo-400 border-4 border-white dark:border-slate-900 left-0 -translate-x-[calc(0.5rem+1px)];
+  @apply absolute rounded-full 
+  w-4 h-4 bg-indigo-600 dark:bg-indigo-400 
+  border-4 border-slate-100 dark:border-slate-800 left-0 
+  -translate-x-[calc(0.5rem+1px)] 
+  -translate-y-[calc(-0.5rem-1px)];
 }
 
+.timeline-item {
+  @apply mt-2 mb-5
+}
+.timeline-item-title {
+  @apply mb-3
+}
 /* Animation keyframes */
 @keyframes fadeIn {
   from {
@@ -107,4 +136,13 @@ body {
 
 footer {
   padding: 1rem;
+}
+
+
+
+
+
+img.hit {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
 }
