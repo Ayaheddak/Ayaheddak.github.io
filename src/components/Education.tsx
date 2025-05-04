@@ -6,18 +6,19 @@ const Education = forwardRef<HTMLDivElement>((props, ref) => {
 
 
   const education = [
-    {
-      degree: "Bachelor of Mathematics \& Computer Science",
-      institution: "Abdelmalek Essaadi University",
-      description: "Comprehensive computer science education with emphasis on programming fundamentals and software development methodologies.",
-      courses: ["Mathematics", "Data Structures", "Object-Oriented Programming", "Database Management", "Web Development"]
-    },
+    
     {
       degree: "Software engineering",
       institution: "Mohammed VI Polytechnic University - 1337 School",
       description: "project-based learning environment focused on software engineering principles and practices, with a strong emphasis on low-level programming and algorithmic problem solving.",
       courses: ["C/C++", "unix/linux", "docker", "network programming",
         "algorithms", "data structures", "system design", "graphics programming"]
+    },
+    {
+      degree: "Bachelor of Mathematics \& Computer Science",
+      institution: "Abdelmalek Essaadi University",
+      description: "Comprehensive computer science education with emphasis on programming fundamentals and software development methodologies.",
+      courses: ["Mathematics", "Data Structures", "Object-Oriented Programming", "Database Management", "Web Development"]
     }
   ];
 

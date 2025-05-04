@@ -73,9 +73,9 @@ function App() {
     <div className={`App ${darkMode ? 'dark' : ''}`}>
       <header className={`
                           fixed w-full 
-                          select-none z-50 
-                          transition-all duration-900  hover:bg-white/90 hover:dark:bg-slate-900/90 hover:backdrop-blur-sm hover:shadow-md 
-                          opacity-0 transition delay-100 duration-300 ease-in-out hover:opacity-100`}>
+                          select-none z-50 bg-white/90 dark:bg-slate-900/90
+                          transition-all duration-900   hover:backdrop-blur-sm hover:shadow-md 
+                          opacity-40 transition delay-100 duration-300 ease-in-out hover:opacity-100`}>
      
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#" className="relative text-xl font-bold text-slate-800 dark:text-white" onClick={() => scrollToSection('home')}>
