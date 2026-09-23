@@ -1,14 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./logo-t.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <script type="module" crossorigin src="./assets/index-Cdzjh6j0.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B-beT9tZ.css">
+    <title>Aya Heddak | Full Stack Software Engineer</title>
+    <script>
+      // Prevent white flash on refresh
+      try {
+        const isDark = localStorage.getItem('theme') !== 'light';
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-DkEMSDhG.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BQ84xzSo.css">
   </head>
-  <body>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased selection:bg-blue-500/20 selection:text-blue-500">
     <div id="root"></div>
   </body>
 </html>
