@@ -24,7 +24,7 @@ body {
 
 .section-title::after {
   content: '';
-  @apply absolute left-0 -bottom-2 w-16 h-1 bg-gradient-to-r from-indigo-600 via-indigo-400 to-cyan-400 rounded-full;
+  @apply absolute left-0 -bottom-2 w-16 h-1 bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 rounded-full;
 }
 
 .section-container {
@@ -35,24 +35,26 @@ body {
   @apply relative;
 }
 
-/* Unified PRO Card styling: sleek soft elevation in light mode, deep glowing glass in dark mode */
+/* Unified PRO Card styling: sleek soft elevation in light mode, deep electric glass in dark mode */
 .pro-card {
   @apply bg-white/95 dark:bg-slate-900/60 backdrop-blur-xl
   border border-slate-200/90 dark:border-slate-800/80
-  shadow-[0_4px_24px_-4px_rgba(99,102,241,0.08),0_1px_4px_0_rgba(15,23,42,0.03)]
-  dark:shadow-xl dark:shadow-indigo-950/20
-  hover:border-indigo-500/40 dark:hover:border-indigo-500/50
+  shadow-[0_4px_24px_-4px_rgba(37,99,235,0.06),0_1px_4px_0_rgba(15,23,42,0.03)]
+  dark:shadow-xl dark:shadow-blue-950/20
+  hover:border-blue-500/40 dark:hover:border-blue-500/50
   transition-all duration-300;
 }
 
 /* Unified PRO Tech Tag */
 .tech-pill {
   @apply px-2.5 py-1 
-  bg-indigo-50/70 dark:bg-slate-800/80 
-  text-indigo-900 dark:text-indigo-300 
+  bg-slate-100/90 dark:bg-slate-800/80 
+  text-slate-800 dark:text-slate-200 
   text-xs sm:text-sm rounded-lg 
-  border border-indigo-100 dark:border-slate-700/60 
-  font-medium;
+  border border-slate-200/80 dark:border-slate-700/60 
+  font-medium
+  transition-colors
+  hover:border-blue-400/50 dark:hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-400;
 }
 
 /* 3D utilities */

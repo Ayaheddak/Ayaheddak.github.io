@@ -79,7 +79,7 @@ function App() {
             <img 
               src={Logo} 
               alt='logo' 
-              className="w-9 h-9 object-fill rounded-full ring-2 ring-indigo-500/30"
+              className="w-9 h-9 object-fill rounded-full ring-2 ring-blue-500/30"
             />
             <span className="text-sm font-mono font-bold tracking-tight text-slate-800 dark:text-slate-100 hidden sm:inline">
               Aya Heddak
@@ -96,7 +96,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
-                  className={`text-sm font-medium capitalize transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400 font-semibold' : 'text-slate-600 dark:text-slate-300'}`}
+                  className={`text-sm font-medium capitalize transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-600 dark:text-slate-300'}`}
                 >
                   {section}
                 </a>
@@ -140,7 +140,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
-                  className="text-sm font-medium capitalize py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                  className="text-sm font-medium capitalize py-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {section}
                 </a>
@@ -160,14 +160,14 @@ function App() {
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 pointer-events-auto">
             <div className="max-w-3xl mx-auto">
               {/* Pro Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-200/80 dark:border-white/15 text-slate-700 dark:text-slate-200 text-xs font-medium backdrop-blur-md mb-6 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                 <span>Full Stack Engineer @ Veltiston AI</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-5 tracking-tight text-slate-900 dark:text-white">
                 <span>Hello, I'm </span>
-                <span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 dark:from-blue-400 dark:via-sky-300 dark:to-slate-100 bg-clip-text text-transparent">
                   Aya Heddak
                 </span>
               </h1>
@@ -184,7 +184,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection('projects');
                   }}
-                  className="px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium shadow-none dark:shadow-lg dark:shadow-indigo-500/25 transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                  className="px-6 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-none dark:shadow-lg dark:shadow-blue-500/25 transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
                 >
                   Explore Work
                 </a>
@@ -194,7 +194,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection('contact');
                   }}
-                  className="px-6 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                  className="px-6 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-blue-400/50 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
                 >
                   Contact Me
                 </a>
@@ -204,7 +204,7 @@ function App() {
               <div className="flex justify-center space-x-3 mb-6">
                 <a
                   href="mailto:heddak.aya@gmail.com"
-                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   aria-label="Email"
                 >
                   <Mail size={18} />
@@ -213,7 +213,7 @@ function App() {
                   href="https://github.com/Ayaheddak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   aria-label="GitHub"
                 >
                   <GitHub size={18} />
@@ -222,7 +222,7 @@ function App() {
                   href="https://linkedin.com/in/aya-heddak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -235,7 +235,7 @@ function App() {
                   e.preventDefault();
                   scrollToSection('about');
                 }}
-                className="inline-flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mt-2"
+                className="inline-flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mt-2"
               >
                 Scroll to learn more <ChevronDown className="ml-1 animate-bounce" size={16} />
               </a>
@@ -252,10 +252,10 @@ function App() {
 
       <footer className="bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-200/80 dark:border-slate-800/80 py-4">
         <div className="container mx-auto px-6 text-center">
-          <div className="flex justify-center   space-x-4 mb-1">
+          <div className="flex justify-center space-x-4 mb-1">
             <a 
               href="mailto:heddak.aya@gmail.com" 
-              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Email"
             >
               <Mail size={15} />
@@ -264,7 +264,7 @@ function App() {
               href="https://github.com/Ayaheddak" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="GitHub"
             >
               <GitHub size={15} />
@@ -273,7 +273,7 @@ function App() {
               href="https://linkedin.com/in/aya-heddak" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="p-3 rounded-full bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={15} />

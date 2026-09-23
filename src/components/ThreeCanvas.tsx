@@ -67,10 +67,10 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     // 1. Outer Smooth Wireframe Celestial Sphere (Planet)
     const sphereGeometry = new THREE.SphereGeometry(8.5, 36, 36);
     const sphereMaterial = new THREE.MeshBasicMaterial({
-      color: 0x6366f1, // Indigo
+      color: 0x2563eb, // Electric Cobalt
       wireframe: true,
       transparent: true,
-      opacity: 0.38,
+      opacity: 0.42,
     });
     const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
     heroGroup.add(sphereMesh);
@@ -78,7 +78,7 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     // 2. Inner Glowing Core Sphere
     const innerSphereGeometry = new THREE.SphereGeometry(5.2, 28, 28);
     const innerSphereMaterial = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4, // Cyan
+      color: 0x38bdf8, // Ice Sky
       wireframe: true,
       transparent: true,
       opacity: 0.5,
@@ -89,44 +89,44 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     // 3. Central Core Glowing Dot (Sphere)
     const centerDotGeometry = new THREE.SphereGeometry(1.6, 24, 24);
     const centerDotMaterial = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
+      color: 0xe0f2fe, // Frost Platinum White
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.9,
     });
     const centerDotMesh = new THREE.Mesh(centerDotGeometry, centerDotMaterial);
     heroGroup.add(centerDotMesh);
 
-    // 4. Smooth Circular Planetary Ring 1 (Saturn Ring)
+    // 4. Smooth Circular Planetary Ring 1 (Cobalt Ring)
     const ringGeometry1 = new THREE.RingGeometry(12.5, 12.8, 128);
     const ringMaterial1 = new THREE.MeshBasicMaterial({
-      color: 0x6366f1,
+      color: 0x2563eb, // Electric Cobalt
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.32,
+      opacity: 0.35,
     });
     const ringMesh1 = new THREE.Mesh(ringGeometry1, ringMaterial1);
     ringMesh1.rotation.x = Math.PI / 3;
     heroGroup.add(ringMesh1);
 
-    // 5. Smooth Circular Planetary Ring 2 (Orbital Gyroscope Ring)
+    // 5. Smooth Circular Planetary Ring 2 (Ice Blue Ring)
     const ringGeometry2 = new THREE.RingGeometry(15.5, 15.8, 128);
     const ringMaterial2 = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4,
+      color: 0x0ea5e9, // Ice Blue
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.28,
     });
     const ringMesh2 = new THREE.Mesh(ringGeometry2, ringMaterial2);
     ringMesh2.rotation.y = Math.PI / 4;
     heroGroup.add(ringMesh2);
 
-    // 6. Smooth Circular Planetary Ring 3 (Outer Horizon Ring)
+    // 6. Smooth Circular Planetary Ring 3 (Frost Titanium Ring)
     const ringGeometry3 = new THREE.RingGeometry(18.5, 18.7, 128);
     const ringMaterial3 = new THREE.MeshBasicMaterial({
-      color: 0xa855f7, // Purple
+      color: 0x94a3b8, // Frost Titanium Silver
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.22,
     });
     const ringMesh3 = new THREE.Mesh(ringGeometry3, ringMaterial3);
     ringMesh3.rotation.z = Math.PI / 6;
@@ -142,9 +142,9 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     const starColors = new Float32Array(starCount * 3);
 
     const palette = [
-      new THREE.Color(0x818cf8), // Soft Indigo
-      new THREE.Color(0x38bdf8), // Cyan / Sky
-      new THREE.Color(0xc084fc), // Violet
+      new THREE.Color(0x3b82f6), // Electric Cobalt
+      new THREE.Color(0x38bdf8), // Ice Sky
+      new THREE.Color(0x94a3b8), // Frost Titanium
       new THREE.Color(0xffffff), // Pure Starlight White
     ];
 

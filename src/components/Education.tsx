@@ -41,7 +41,7 @@ const Education = forwardRef<HTMLDivElement>((props, ref) => {
 
       <div className="content-container container mx-auto px-4 sm:px-6 md:px-12 relative z-20">
         <div className="mb-8 sm:mb-10 text-left">
-          <span className="text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+          <span className="text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
             Academic Background
           </span>
           <h2 className="section-title mt-3 text-slate-900 dark:text-white block">
@@ -55,14 +55,14 @@ const Education = forwardRef<HTMLDivElement>((props, ref) => {
               <div className="pro-card p-5 sm:p-6 md:p-8 rounded-2xl flex flex-col justify-between h-full">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2.5 sm:p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-800/50">
+                    <div className="p-2.5 sm:p-3 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
                       <GraduationCap size={22} />
                     </div>
                     <div>
                       <h3 className="font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
                         {edu.degree}
                       </h3>
-                      <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-0.5">
+                      <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mt-0.5">
                         {edu.institution}
                       </p>
                     </div>
@@ -75,7 +75,7 @@ const Education = forwardRef<HTMLDivElement>((props, ref) => {
 
                 <div>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
-                    <BookOpen size={14} className="text-indigo-500" /> Key Disciplines
+                    <BookOpen size={14} className="text-blue-500" /> Key Disciplines
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {edu.courses.map((course, i) => (

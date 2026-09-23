@@ -90,7 +90,7 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
 
       <div className="content-container container mx-auto px-4 sm:px-6 md:px-12 relative z-20">
         <div className="mb-8 sm:mb-10 text-left">
-          <span className="text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+          <span className="text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
             Career Journey
           </span>
           <h2 className="section-title mt-3 text-slate-900 dark:text-white block">
@@ -104,8 +104,8 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
               {/* Timeline Indicator Node with Glow */}
               <div className={`absolute -left-[8px] sm:-left-[9px] top-1.5 w-3.5 sm:w-4 h-3.5 sm:h-4 rounded-full border-2 sm:border-4 ${
                 exp.isCurrent
-                  ? 'bg-emerald-500 border-emerald-100 dark:border-slate-900 ring-4 ring-emerald-500/20'
-                  : 'bg-indigo-600 dark:bg-indigo-400 border-indigo-100 dark:border-slate-900'
+                  ? 'bg-blue-500 border-blue-100 dark:border-slate-900 ring-4 ring-blue-500/20'
+                  : 'bg-slate-400 dark:bg-slate-600 border-slate-100 dark:border-slate-900'
               }`} />
 
               {/* 3D Glassmorphic Experience Card */}
@@ -118,14 +118,14 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
                           {exp.title}
                         </h3>
                         {exp.isCurrent && (
-                          <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                          <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-200 border border-slate-300/70 dark:border-white/15">
                             Current Role
                           </span>
                         )}
                       </div>
 
                       <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                        <span className="font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                        <span className="font-semibold text-blue-600 dark:text-blue-400 flex items-center gap-1">
                           <Briefcase size={14} /> {exp.company}
                         </span>
                         <span>•</span>
@@ -136,7 +136,7 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
                     </div>
 
                     <div className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60">
-                      <Calendar size={13} className="text-indigo-500" />
+                      <Calendar size={13} className="text-blue-500" />
                       <span>{exp.period}</span>
                     </div>
                   </div>
@@ -144,7 +144,7 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
                   <ul className="space-y-2 mt-4">
                     {exp.description.map((desc, i) => (
                       <li key={i} className="flex items-start text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                        <span className="mr-2.5 text-indigo-500 dark:text-indigo-400 font-bold">•</span>
+                        <span className="mr-2.5 text-blue-500 dark:text-blue-400 font-bold">•</span>
                         <span>{desc}</span>
                       </li>
                     ))}
