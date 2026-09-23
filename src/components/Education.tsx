@@ -68,7 +68,7 @@ const Education = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                   </div>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                  <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed mb-6">
                     {edu.description}
                   </p>
                 </div>

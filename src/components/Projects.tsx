@@ -85,7 +85,7 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
                     <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed mb-4">
                       {project.description}
                     </p>
                   </div>

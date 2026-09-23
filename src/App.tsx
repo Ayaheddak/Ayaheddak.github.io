@@ -172,7 +172,7 @@ function App() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-2xl mb-7 sm:mb-8 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal px-2">
+              <p className="text-base sm:text-lg md:text-2xl mb-7 sm:mb-8 text-slate-800 dark:text-slate-200 max-w-2xl mx-auto font-normal px-2">
                 Crafting robust full-stack architectures, real-time analytics dashboards, and scalable web platforms.
               </p>
 

@@ -143,7 +143,7 @@ const Experience = forwardRef<HTMLDivElement>((props, sectionRef) => {
 
                   <ul className="space-y-2 mt-4">
                     {exp.description.map((desc, i) => (
-                      <li key={i} className="flex items-start text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                      <li key={i} className="flex items-start text-xs sm:text-sm md:text-base text-slate-800 dark:text-slate-200 leading-relaxed">
                         <span className="mr-2.5 text-blue-500 dark:text-blue-400 font-bold">•</span>
                         <span>{desc}</span>
                       </li>
