@@ -155,36 +155,39 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           <ThreeCanvas className="w-full h-full opacity-80 dark:opacity-90" />
         </div>
-        <section ref={sectionRefs.home} id="home" className="relative h-screen select-none flex items-center justify-center">
+        <section ref={sectionRefs.home} id="home" className="relative min-h-screen select-none flex items-center">
           <ParallaxHero />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 pointer-events-auto">
-            <div className="max-w-3xl mx-auto">
+          <div className="w-full container mx-auto px-6 sm:px-8 md:px-12 py-24 pointer-events-auto flex justify-end">
+            {/* Anchored to the Right Side of the page */}
+            <div className="flex flex-col items-start text-left max-w-lg lg:max-w-xl ml-auto">
               {/* Pro Status Pill */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-200/80 dark:border-white/15 text-slate-700 dark:text-slate-200 text-xs font-medium backdrop-blur-md mb-6 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                 <span>Full Stack Engineer @ Veltiston AI</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-5 tracking-tight text-slate-900 dark:text-white">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-5 tracking-tight text-slate-900 dark:text-white leading-[1.08] text-left">
                 <span>Hello, I'm </span>
+                <br />
                 <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 dark:from-blue-400 dark:via-sky-300 dark:to-slate-100 bg-clip-text text-transparent">
                   Aya Heddak
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-2xl mb-7 sm:mb-8 text-slate-800 dark:text-slate-200 max-w-2xl mx-auto font-normal px-2">
+              {/* Clear, Crisp Tagline */}
+              <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 font-normal leading-relaxed mb-7 text-left">
                 Crafting robust full-stack architectures, real-time analytics dashboards, and scalable web platforms.
               </p>
 
               {/* CTAs */}
-              <div className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap mb-7 sm:mb-8">
+              <div className="flex items-center gap-3 sm:gap-4 flex-wrap mb-7">
                 <a
                   href="#projects"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('projects');
                   }}
-                  className="px-6 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-none dark:shadow-lg dark:shadow-blue-500/25 transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-none dark:shadow-lg dark:shadow-blue-500/25 transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base text-center"
                 >
                   Explore Work
                 </a>
@@ -194,14 +197,14 @@ function App() {
                     e.preventDefault();
                     scrollToSection('contact');
                   }}
-                  className="px-6 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-blue-400/50 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                  className="px-6 py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-blue-400/50 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base text-center"
                 >
                   Contact Me
                 </a>
               </div>
 
               {/* Social Icons */}
-              <div className="flex justify-center space-x-3 mb-6">
+              <div className="flex items-center space-x-3 mb-2">
                 <a
                   href="mailto:heddak.aya@gmail.com"
                   className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -228,18 +231,22 @@ function App() {
                   <Linkedin size={18} />
                 </a>
               </div>
-
-              <a
-                href="#about"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('about');
-                }}
-                className="inline-flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mt-2"
-              >
-                Scroll to learn more <ChevronDown className="ml-1 animate-bounce" size={16} />
-              </a>
             </div>
+          </div>
+
+          {/* Positioned at the bottom end of the Hero section */}
+          <div className="absolute bottom-6 sm:bottom-8 inset-x-0 flex justify-center pointer-events-auto z-20">
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('about');
+              }}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 backdrop-blur-md text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/30 transition-all duration-200 shadow-sm"
+            >
+              <span>Scroll to learn more</span>
+              <ChevronDown className="animate-bounce" size={14} />
+            </a>
           </div>
         </section>
 

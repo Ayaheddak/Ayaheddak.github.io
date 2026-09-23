@@ -11,7 +11,12 @@
 
 .dark {
   --foreground-rgb: 255, 255, 255;
-  --background-rgb: 15, 23, 42;
+  --background-rgb: 2, 6, 23;
+}
+
+html.dark {
+  background-color: #020617;
+  color-scheme: dark;
 }
 
 body {

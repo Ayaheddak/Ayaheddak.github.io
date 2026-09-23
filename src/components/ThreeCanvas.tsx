@@ -1,14 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 interface ThreeCanvasProps {
   className?: string;
+  onReady?: () => void;
 }
 
-const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
+const ThreeCanvas = ({ className = '', onReady }: ThreeCanvasProps) => {
   const mountRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = mountRef.current;
     if (!container) return;
 
@@ -21,6 +22,14 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
       1000
     );
 
+    const getHeroBaseX = () => {
+      const width = window.innerWidth;
+      if (width >= 1440) return -8.2;
+      if (width >= 1024) return -7.4;
+      if (width >= 768) return -5.8;
+      return 0;
+    };
+
     const updateCameraDistance = () => {
       const width = window.innerWidth;
       camera.position.z = width < 640 ? 38 : width < 1024 ? 32 : 26;
@@ -28,9 +37,10 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     updateCameraDistance();
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    const width = container.clientWidth || window.innerWidth || 1920;
+    const height = container.clientHeight || window.innerHeight || 1080;
+    renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
 
     // ==========================================
     // Helper: Round Glowing Circle Texture (No Square Cubes)
@@ -62,6 +72,7 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     // A. HERO CELESTIAL SPHERE & ORBITAL RINGS (Pure Circles & Spheres, Zero Cubes)
     // ==========================================
     const heroGroup = new THREE.Group();
+    heroGroup.position.x = getHeroBaseX();
     scene.add(heroGroup);
 
     // 1. Outer Smooth Wireframe Celestial Sphere (Planet)
@@ -86,12 +97,12 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
     const innerSphereMesh = new THREE.Mesh(innerSphereGeometry, innerSphereMaterial);
     heroGroup.add(innerSphereMesh);
 
-    // 3. Central Core Glowing Dot (Sphere)
-    const centerDotGeometry = new THREE.SphereGeometry(1.6, 24, 24);
+    // 3. Central Core Glowing Dot (Sphere) - subtle ambient glow so text remains crisp & readable
+    const centerDotGeometry = new THREE.SphereGeometry(1.5, 24, 24);
     const centerDotMaterial = new THREE.MeshBasicMaterial({
-      color: 0xe0f2fe, // Frost Platinum White
+      color: 0x93c5fd, // Soft Ice Glow
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.22,
     });
     const centerDotMesh = new THREE.Mesh(centerDotGeometry, centerDotMaterial);
     heroGroup.add(centerDotMesh);
@@ -248,6 +259,7 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
       updateCameraDistance();
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
+      heroGroup.position.x = getHeroBaseX();
     };
 
     window.addEventListener('resize', handleResize);
@@ -277,12 +289,12 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
 
       heroGroup.visible = heroFade > 0.01;
       if (heroGroup.visible) {
-        sphereMaterial.opacity = 0.38 * heroFade;
-        innerSphereMaterial.opacity = 0.5 * heroFade;
-        centerDotMaterial.opacity = 0.8 * heroFade;
-        ringMaterial1.opacity = 0.32 * heroFade;
-        ringMaterial2.opacity = 0.25 * heroFade;
-        ringMaterial3.opacity = 0.18 * heroFade;
+        sphereMaterial.opacity = 0.32 * heroFade;
+        innerSphereMaterial.opacity = 0.38 * heroFade;
+        centerDotMaterial.opacity = 0.22 * heroFade;
+        ringMaterial1.opacity = 0.28 * heroFade;
+        ringMaterial2.opacity = 0.22 * heroFade;
+        ringMaterial3.opacity = 0.16 * heroFade;
 
         // Smooth circular rotation with mouse parallax
         heroGroup.rotation.y = targetX * 1.5 + elapsedTime * 0.15;
@@ -297,7 +309,8 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
         ringMesh2.rotation.z = -elapsedTime * 0.06;
         ringMesh3.rotation.z = elapsedTime * 0.04;
 
-        heroGroup.position.y = -(scrollY * 0.04);
+        heroGroup.position.x = getHeroBaseX() + targetX * 1.2;
+        heroGroup.position.y = -(scrollY * 0.04) + targetY * 0.6;
         heroGroup.position.z = -(scrollY * 0.05);
       }
 
@@ -353,6 +366,17 @@ const ThreeCanvas = ({ className = '' }: ThreeCanvasProps) => {
 
       renderer.render(scene, camera);
     };
+
+    // Pre-compile shaders & render frame 0 synchronously BEFORE appending to DOM
+    renderer.compile(scene, camera);
+    renderer.render(scene, camera);
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.inset = '0';
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.display = 'block';
+    container.appendChild(renderer.domElement);
+    if (onReady) onReady();
 
     animate();
 

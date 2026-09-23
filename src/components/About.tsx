@@ -4,7 +4,20 @@ import { forwardRef } from 'react';
 // import GirlCutout from '../assets/Girl-cutout.png';
 import BackgroundOverlay from './BackgroundOverlay';
 import TiltCard from './TiltCard';
-import { Code2, Server, Database, Sparkles, Terminal } from 'lucide-react';
+import {
+  Code2,
+  Server,
+  Database,
+  Sparkles,
+  Terminal,
+  Activity,
+  Cpu,
+  Layers,
+  GraduationCap,
+  CheckCircle2,
+  FileText,
+  Send,
+} from 'lucide-react';
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   return (
@@ -78,29 +91,81 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
             </TiltCard>
           </div>
 
-          {/* Right: Detailed Bio & Call-to-Actions */}
+          {/* Right: Modern Structured Highlights & Call-to-Actions */}
           <div className="lg:col-span-7">
             <TiltCard maxTilt={4}>
-              <div className="pro-card p-6 sm:p-8 rounded-2xl text-left">
-                <p className="text-sm sm:text-base md:text-lg text-slate-900 dark:text-slate-100 leading-relaxed mb-5 font-normal">
-                  I am a <strong className="text-slate-950 dark:text-white font-bold">Full Stack Software Engineer</strong> with a rigorous computer science foundation, building resilient, production-grade applications that bridge complex backend architectures with high-performance, responsive frontends.
+              <div className="pro-card p-5 sm:p-7 rounded-2xl text-left">
+                {/* Executive 1-line bio */}
+                <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed font-normal mb-5">
+                  I am a <strong className="text-slate-950 dark:text-white font-semibold">Full Stack Software Engineer</strong> dedicated to building high-reliability platforms, real-time analytics dashboards, and scalable architectures that deliver measurable real-world impact.
                 </p>
 
-                <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed mb-7 font-normal">
-                  Currently at <strong className="text-blue-600 dark:text-blue-400 font-bold">Veltiston AI</strong>, I build mission-critical hospital analytics and operating-room optimization platforms using Next.js, React, Java, and Spring Boot. With a low-level foundation in C/C++ from 1337 Coding School and deep experience in data engineering and web scraping, I craft scalable systems with performance, clean code, and user experience at their core.
-                </p>
+                {/* 3 Structured Highlight Pillars */}
+                <div className="space-y-2.5 mb-5">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/40 border border-slate-200/70 dark:border-slate-800/80 transition-colors">
+                    <Activity size={18} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        Healthcare & OR Analytics
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-normal">
+                        Engineering operating-room optimization platforms and clinical decision-making dashboards at <strong className="text-blue-600 dark:text-blue-400 font-semibold">Veltiston AI</strong>.
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="flex text-sm sm:text-base justify-start gap-3.5 flex-wrap">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/40 border border-slate-200/70 dark:border-slate-800/80 transition-colors">
+                    <Cpu size={18} className="text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        Systems & Performance Mindset
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-normal">
+                        Rigorous algorithmic foundation from <strong className="text-slate-900 dark:text-white font-medium">1337 Coding School</strong> (42 Network), focused on memory efficiency and clean code.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/40 border border-slate-200/70 dark:border-slate-800/80 transition-colors">
+                    <Layers size={18} className="text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                        End-to-End Delivery
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-normal">
+                        Connecting robust Java / Spring Boot services and automated ETL data pipelines with high-speed React & Next.js user interfaces.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Key Badges */}
+                <div className="flex flex-wrap items-center gap-2 mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60">
+                    <GraduationCap size={13} className="text-blue-500" /> 1337 / 42 Alum
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60">
+                    <CheckCircle2 size={13} className="text-emerald-500" /> Production Systems
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60">
+                    <Activity size={13} className="text-sky-500" /> Real-time Analytics
+                  </span>
+                </div>
+
+                {/* CTAs */}
+                <div className="flex text-sm sm:text-base justify-start gap-3 flex-wrap">
                   <a
                     href="/resume.pdf"
-                    className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-sm hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 text-center w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs sm:text-sm font-medium shadow-sm hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 text-center w-full sm:w-auto"
                   >
+                    <FileText size={15} />
                     Download Resume
                   </a>
                   <a
                     href="#contact"
-                    className="px-6 py-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-blue-400/50 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-center w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-blue-400/50 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 text-center w-full sm:w-auto"
                   >
+                    <Send size={14} />
                     Get in Touch
                   </a>
                 </div>
