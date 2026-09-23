@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, Moon, Sun, Github as GitHub, Linkedin, Mail, Phone, ChevronDown, ExternalLink, Download } from 'lucide-react';
+import { Menu, Moon, Sun, Github as GitHub, Linkedin, Mail, ChevronDown } from 'lucide-react';
 import './App.css';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -7,9 +7,11 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ParallaxHero from './components/ParallaxHero';
+import ThreeCanvas from './components/ThreeCanvas';
 import Logo from './assets/logo-t.png';
 
-import BgAbout from '/src/assets/bg-about-bg.png';
+// Legacy background import commented out
+// import BgAbout from '/src/assets/bg-about-bg.png';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -71,23 +73,21 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? 'dark' : ''}`}>
-      <header className={`
-                          fixed w-full 
-                          select-none z-50 bg-white/90 dark:bg-slate-900/90
-                          transition-all duration-900   hover:backdrop-blur-sm hover:shadow-md 
-                          opacity-40 transition delay-100 duration-300 ease-in-out hover:opacity-100`}>
-     
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="relative text-xl font-bold text-slate-800 dark:text-white" onClick={() => scrollToSection('home')}>
-          <img 
-                src={Logo} 
-                alt='logo' 
-                className="w-10 h-10 object-fill rounded-full"
-          />
+      <header className="fixed w-full select-none z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
+        <div className="container mx-auto px-6 py-3.5 flex justify-between items-center">
+          <a href="#" className="relative text-xl font-bold text-slate-800 dark:text-white flex items-center gap-2" onClick={() => scrollToSection('home')}>
+            <img 
+              src={Logo} 
+              alt='logo' 
+              className="w-9 h-9 object-fill rounded-full ring-2 ring-indigo-500/30"
+            />
+            <span className="text-sm font-mono font-bold tracking-tight text-slate-800 dark:text-slate-100 hidden sm:inline">
+              Aya Heddak
+            </span>
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6  ">
+            <nav className="flex items-center space-x-6">
               {Object.keys(sectionRefs).map(section => section !== 'home' && (
                 <a 
                   key={section}
@@ -96,7 +96,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
-                  className={`text-sm font-medium capitalize transition-colors duration-300 hover:text-green-600 dark:hover:text-green-400 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'}`}
+                  className={`text-sm font-medium capitalize transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${activeSection === section ? 'text-indigo-600 dark:text-indigo-400 font-semibold' : 'text-slate-600 dark:text-slate-300'}`}
                 >
                   {section}
                 </a>
@@ -104,48 +104,34 @@ function App() {
             </nav>
             <button 
               onClick={() => setDarkMode(!darkMode)} 
-              className="p-2 rounded-full 
-              dark:bg-slate-100 
-              bg-slate-800 
-              dark:text-slate-600 
-              text-slate-300 
-              dark:hover:bg-slate-200 
-              hover:bg-slate-700 
-              transition-colors"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200/50 dark:border-slate-700/50"
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
           
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-3">
             <button 
               onClick={() => setDarkMode(!darkMode)} 
-              className="p-2 rounded-full 
-              dark:bg-slate-100 
-              bg-slate-800 
-              dark:text-slate-600 
-              text-slate-300 
-              dark:hover:bg-slate-200 
-              hover:bg-slate-700 
-              transition-colors"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
               aria-label="Open menu"
             >
-              <Menu size={20} />
+              <Menu size={18} />
             </button>
           </div>
         </div>
         
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg opacity-100">
-            <nav className="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <div className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <nav className="container mx-auto px-6 py-4 flex flex-col space-y-3">
               {Object.keys(sectionRefs).map(section => section !== 'home' && (
                 <a 
                   key={section}
@@ -154,7 +140,7 @@ function App() {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
-                  className="text-sm font-medium capitalize py-2 text-slate-600 dark:text-slate-300"
+                  className="text-sm font-medium capitalize py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
                 >
                   {section}
                 </a>
@@ -164,81 +150,107 @@ function App() {
         )}
       </header>
 
-      <main className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200">
-        <section ref={sectionRefs.home} id="home" className="relative h-screen select-none">
+      <main className="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 relative">
+        {/* Global Persistent 3D WebGL Canvas Journey Across All Sections */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <ThreeCanvas className="w-full h-full opacity-80 dark:opacity-90" />
+        </div>
+        <section ref={sectionRefs.home} id="home" className="relative h-screen select-none flex items-center justify-center">
           <ParallaxHero />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 pointer-events-auto">
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-slate-800 dark:text-white">
-                <span className="block">Hello, I'm</span>
-                <span className="text-indigo-600 dark:text-indigo-400">Aya Heddak</span>
+              {/* Pro Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Full Stack Engineer @ Veltiston AI</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-5 tracking-tight text-slate-900 dark:text-white">
+                <span>Hello, I'm </span>
+                <span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+                  Aya Heddak
+                </span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-slate-600 dark:text-slate-300">
-                Software Engineer
+
+              <p className="text-base sm:text-lg md:text-2xl mb-7 sm:mb-8 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal px-2">
+                Crafting robust full-stack architectures, real-time analytics dashboards, and scalable web platforms.
               </p>
-              <div className="flex justify-center space-x-4 mb-8">
+
+              {/* CTAs */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap mb-7 sm:mb-8">
+                <a
+                  href="#projects"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('projects');
+                  }}
+                  className="px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium shadow-none dark:shadow-lg dark:shadow-indigo-500/25 transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                >
+                  Explore Work
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                  }}
+                  className="px-6 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
+                >
+                  Contact Me
+                </a>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex justify-center space-x-3 mb-6">
                 <a
                   href="mailto:heddak.aya@gmail.com"
-                  className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="Email"
                 >
-                  <Mail size={20} />
+                  <Mail size={18} />
                 </a>
                 <a
                   href="https://github.com/Ayaheddak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="GitHub"
                 >
-                  <GitHub size={20} />
+                  <GitHub size={18} />
                 </a>
                 <a
                   href="https://linkedin.com/in/aya-heddak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={18} />
                 </a>
               </div>
+
               <a
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('about');
                 }}
-                className="inline-flex items-center justify-center mt-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+                className="inline-flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mt-2"
               >
-                Discover More <ChevronDown className="ml-1" size={20} />
+                Scroll to learn more <ChevronDown className="ml-1 animate-bounce" size={16} />
               </a>
             </div>
           </div>
         </section>
-        <section  className='min-h-screen'>
-          <About ref={sectionRefs.about} />
-        </section>
-        <section  className='min-h-screen'>
-          <Experience ref={sectionRefs.experience} />
-        </section>
 
-
-        <section  className='min-h-screen'>
-          <Education  ref={sectionRefs.education}/>
-        </section>
-
-        <section  className='min-h-screen'>
-          <Projects ref={sectionRefs.projects}/>
-        </section>
-
-        <section  className='min-h-screen'>
-            <Contact ref={sectionRefs.contact} />
-        </section>
+        <About ref={sectionRefs.about} />
+        <Experience ref={sectionRefs.experience} />
+        <Education ref={sectionRefs.education} />
+        <Projects ref={sectionRefs.projects} />
+        <Contact ref={sectionRefs.contact} />
       </main>
 
-      <footer className="bg-white/90 dark:bg-slate-900/90
-       py-2">
+      <footer className="bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-200/80 dark:border-slate-800/80 py-4">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center   space-x-4 mb-1">
             <a 

@@ -1,43 +1,11 @@
-import { useEffect, useState } from 'react';
-import  backgroundImage from '@/assets/bg.jpg';
-
 const ParallaxHero = () => {
-  const [offset, setOffset] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.pageYOffset);
-
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <div className="relative h-full w-full overflow-hidden">
-     
-      <div 
-        className="absolute inset-0 h-full w-full"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${offset * 0.3}px)`,
-          opacity: 0.5
-        }}
-      ></div>
-      
-     
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900"
-        style={{
-          opacity: 0.2 + (offset * 0.001)
-        }}
-      ></div>
+    <div className="relative h-full w-full overflow-hidden select-none pointer-events-none">
+      {/* Signature ambient radial light glow for light & dark mode */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.14),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.25),transparent)]" />
+
+      {/* Clean bottom transition to next section */}
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent" />
     </div>
   );
 };
